@@ -1,0 +1,71 @@
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '100px' }"></ngx-loading>
+
+<div class="hero-image">
+</div>
+
+<div class="media_container m-r-20 m-t-70 m-b-30 ">
+  <div class="row">
+      <div class="col-md-6 scroll">
+        <p class="title fs-35 wow slideInRight" data-wow-duration="3s">Aarti</p>
+          <div class="row" *ngFor="let slide of info">
+            <div class="col-md-5" >
+              <div class="font_text" style="font-size: 22px;padding-left: 20%;">{{slide.title}}                
+                <a class="font_text" style="font-size: 17px; padding-left: 20%;" href="{{slide.lyrics}}">View Pdf</a>
+              </div>
+            </div>
+            <div class="col-md-6" >
+              <audio class="" style="width: 100%;" controls>
+                <source style="padding-bottom: 5%" src="{{slide.audio}}" type="audio/mpeg">
+              </audio>
+            </div>
+          </div>
+      </div>
+      <div class="col-md-4 offset-md-1">
+          <p class="title fs-35 wow slideInRight" data-wow-duration="3s">Videos</p>
+          <div class="block_container" style="background-color: black">
+            <ngx-slick responsive="breakpoint" class="m-l-30 m-r-30" #slickModal="slick-modal" [config]="slideConfig1">
+                <div ngxSlickItem *ngFor="let slide of info1" class="slider" (click)="off()">
+                  <iframe class="video_container"  allowfullscreen="allowfullscreen"
+                    [src]="slide.video | safe" type="video/mp4">
+                  </iframe>
+                <div class="text font_text">{{slide.title}}</div>  
+                </div> 
+            </ngx-slick>
+          </div>
+      </div>
+  </div>
+</div>    
+                 
+<div class="p-t-30 m-t-70 m-b-30 p-b-30 container-fluid" style="background-image: url(../../assets/images/lightgrey.jpg)">
+  <div class="text-center">
+      <p class="title fs-35 wow slideInLeft" data-wow-duration="3s">SaiCharitra</p>
+        <div class="block_container1 p-l-70 p-r-70">
+            "Aum Shri Anantkoti Brahmand Nayak Purna Par Brahma Rajadhiraj Yogiraj Maha Samartha Shree Sachhidanand Sadguru Sainath Maharaj ki Jai"
+        </div>
+    <button class="button wow fadeInDown" data-wow-duration="3s" onclick="location.href='../../assets/saicharitra.pdf'">View Pdf</button> 
+  </div>
+</div>
+
+  
+  <div class="intro_title d-flex justify-content-center wow zoomIn p-t-20 p-b-20" data-wow-duration="3s">
+    Upcoming Events
+  </div>
+
+  <div *ngFor="let element of info2">
+    <div class="container shadow p-3 mb-3" style="background-color: wheat">
+      <div class="row">
+        <div class="col-md-4">
+            <img class="img_style" src="{{element.img}}">
+        </div>
+        <div class="col-md-7 m-l-40">
+            <div class="font2">{{element.day}}</div>
+            <div style="font-size: 20px">
+                <br><strong class="font_text">{{element.subject}}</strong>
+            </div>
+            <br><p class="font_text">{{element.programme}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+

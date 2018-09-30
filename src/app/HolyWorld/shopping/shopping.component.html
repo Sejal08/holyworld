@@ -1,0 +1,173 @@
+<div class="back">
+    <div class="hero-image">
+        <div class="hero-text">
+            <!-- <h1 style="font-size:50px">Wherever you go it’ll inside the World </h1>
+            <p>Lorem ipsum dolor sit amet.</p> -->
+        </div>
+    </div>
+
+    <div class="matTab1 container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-12">
+                <nav>
+                    <div class="nav nav-tabs nav-justified" id="nav-tab" role="tablist">
+                        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home"
+                            aria-selected="true">Devotional Product Shop</a>
+                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile"
+                            aria-selected="false">Most Popular Product Shop</a>
+                        <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+                    </div>
+                </nav>
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <div class="container-fluid">
+                            <!-- <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading> -->
+                            <ngx-slick class="for1" #slickModal="slick-modal" [config]="slideConfig1">
+                                <div ngxSlickItem *ngFor="let slide of listIn">
+                                    <div class="row">
+                                        <div class="column">
+                                            <img class="shopping_image img-responsive" src="{{ slide.img }}" alt="">
+                                        </div>
+                                        <div class="column">
+                                            <div class="title">
+                                                <h6 class="fs-35">{{slide.title}}</h6>
+                                            </div>
+                                            <div class="row detail">
+                                                <div class="column">
+                                                    <h5>Products</h5>
+                                                    <label class="m-l-10">{{slide.address}}</label>
+
+                                                </div>
+                                                <div class="column">
+                                                    <div>
+                                                        <h5>Address: </h5>
+                                                        <label class="m-l-10">{{slide.address}}</label>
+                                                    </div>
+
+                                                    <div>
+                                                        <h5 class="p-t-10">Service Ratings: &nbsp;</h5>
+                                                        <rating [(ngModel)]="slide.service_rating" [readonly]="true" [float]="true"></rating>
+                                                    </div>
+                                                    <!-- <div class="m-t-10"> 
+                                                        <h5>Rating: </h5>
+                                                        <bar-rating [rate]="faoRate" (rateChange)="onFaoRate($event)" [max]="5"></bar-rating>
+                                                    </div> -->
+
+
+                                                </div>
+                                            </div>
+                                            <hr>
+
+                                            <div class="btn_center m-t-10 m-b-10">
+                                                <button class="btn btn1 btn-grad" data-toggle="modal" data-target="#modal1" (click)="add(slide.title)">
+                                                    Give FeedBack
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </ngx-slick>
+
+                            <ngx-slick responsive="breakpoints" class="nav1" #slickModal="slick-modal" [config]="slideConfig">
+                                <div ngxSlickItem *ngFor="let slide of listIn" class="slide" (click)="slickFun()">
+                                    <img class="img_thumbnails" src="{{ slide.img }}" alt="" width="100%">
+                                    <div class="container">
+                                        <label>{{slide.title}}</label>
+                                    </div>
+                                </div>
+                            </ngx-slick>
+                        </div>
+                    </div>
+
+                    <!-----------------------Near Shirdi---------------------- -->
+
+                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                        <div class="container-fluid">
+
+                            <ngx-slick class="for2" #slickModal="slick-modal" [config]="nearConfig1">
+                                <!-- <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '100px' }"></ngx-loading> -->
+
+                                <div ngxSlickItem *ngFor="let slide of listNear">
+                                    <div class="row">
+                                        <div class="column">
+                                            <img class="shopping_image img-responsive" src="{{ slide.img }}" alt="">
+
+                                        </div>
+                                        <div class="column">
+                                            <div class="title">
+                                                <h6 class="fs-35">{{slide.title}}</h6>
+                                            </div>
+                                            <div class="row detail">
+                                                <div class="column">
+                                                    <h5>Products</h5>
+                                                    <!-- <label class="m-l-10">{{slide.address}}</label> -->
+
+                                                </div>
+                                                <div class="column">
+
+                                                    <div>
+                                                        <h5>Address: </h5>
+                                                        <label class="m-l-10">{{slide.address}}</label>
+                                                    </div>
+
+                                                    <!-- <h5 class="m-t-10">Way To Reach: </h5>
+                                                    <label class="m-l-10">{{slide.reach}}</label> -->
+
+                                                    <div>
+                                                        <h5 class="p-t-10">Service Ratings: &nbsp;</h5>
+                                                        <rating [(ngModel)]="slide.service_rating" [readonly]="true" [float]="true"></rating>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="btn_center m-t-10 m-b-10">
+                                                <button class="btn btn1 btn-grad" data-toggle="modal" data-target="#modal1" (click)="add(slide.title)">
+                                                    Give FeedBack
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ngx-slick>
+
+                            <form [formGroup]="form">
+                                <ngx-slick responsive="breakpoints" class="nav2" #slickModal="slick-modal" [config]="nearConfig">
+                                    <div ngxSlickItem *ngFor="let slide of listNear" class="slide" (click)="slideFun()">
+                                        <img class="img_thumbnails" src="{{ slide.img }}" alt="" width="100%">
+                                        <div class="container">
+                                            <label>{{slide.title}}</label>
+                                        </div>
+                                    </div>
+                                </ngx-slick>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="modal" id="modal1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title">
+                        Give Your Feedback Here...
+                    </div>
+                </div>
+                <div class="btn_center modal-body">
+                    <button (click)="tryGoogleLogin()" class="btn" data-dismiss="modal">
+                        <i class="fa fa-google fa-fw"></i> Login with Google
+                    </button>
+                </div>
+                <div class="login_text">You must login with google account</div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

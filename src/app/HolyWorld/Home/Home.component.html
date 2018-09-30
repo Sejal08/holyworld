@@ -1,0 +1,179 @@
+
+  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '100px' }"></ngx-loading>
+
+<div class="hero-image">
+  <!-- <div class="hero-text home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
+    <h1 style="font-size:50px">Discover the World</h1>
+    <p>Trust in the Guru fully that is the only Sadhana</p>
+
+  </div> -->
+
+
+</div>
+
+<!-- <agm-map [latitude]="map.lat" [longitude]="map.lng" style="height: 300px">
+  <agm-marker [latitude]="map.lat" [longitude]="map.lng"></agm-marker>
+</agm-map> -->
+
+<div class="intro">
+  <div class="container">
+    <div class="row justify-content-around">
+      <div class="col-sm-4 d-flex justify-content-center">
+        <img class="intro_image" src="assets/images/saibaba11.png" alt="">
+      </div>
+      <div class="col-sm-6">
+        <div class="intro_content">
+          <div class="intro_title">we have the best tours</div>
+          <p class="intro_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis vulputate eros, iaculis consequat nisl. Nunc
+            et suscipit urna. Integer elementum orci eu vehicula pretium. Donec bibendum tristique condimentum. Aenean in
+            lacus ligula. Phasellus euismod gravida eros. Aenean nec ipsum aliquet, pharetra magna id, interdum sapien. Etiam
+            id lorem eu nisl pellentesque semper. Nullam tincidunt metus placerat, suscipit leo ut, tempus nulla. Fusce at
+            eleifend tellus. Ut eleifend dui nunc, non fermentum quam placerat non. Etiam venenatis nibh augue, sed eleifend
+            justo tristique eu</p>
+          <!-- <div class="col-lg-4">
+            <button class="btn btn1 btn-grad" style="width: 100%;">
+              Search
+            </button>
+          </div> -->
+        </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="main_title d-flex justify-content-center">
+  <h2 class="intro_title">Current Events </h2>
+</div>
+
+<div class="container">
+  <div class="row">
+      <div class="feature_item" *ngFor="let element of events">
+        <div class="col-sm-3">
+          <img src="{{element.img}}" alt="" height="100%" width="100%">
+        </div>
+        <div class="col-sm-9">
+          <h4>{{element.subject}}</h4>
+          <p>{{element.day}}</p>
+        </div>
+      </div>
+  </div> 
+</div>
+
+<div class="centerBtn">
+    <button routerLink="/holy/literature" class="btn btn1 btn-grad p-l-4 p-r-4 m-b-60">
+      View More
+    </button>      
+  </div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="column">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30037.368589994006!2d74.45646927735318!3d19.76912479840528!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bdc5b95a1bdc247%3A0x7497fb1646dd2d62!2sShri+Dwarkamai+Temple.!5e0!3m2!1sen!2sin!4v1533819889469"
+        width="100%" height="450" style="border:0" class="m-r-5">
+      </iframe>
+    </div>
+
+    <div class="column">
+      <div class="searchbox">
+        <form [formGroup]="search">
+
+          <div class="m-t-40" width="100%">
+            <!-- <label class="control-label m-t-10" for="Country">Country:</label> -->
+            <select formControlName="country" [(ngModel)]="selectedCountry" ng-keydown="option" (change)="onSelectCountry($event.target.value)" class="form-control input100"
+              id="country">
+              <option class="input100" value="0">Select City</option>
+              <option class="input100" *ngFor="let country of listCity" value= {{country.id}}>{{country.city}}</option>
+            </select>
+          </div>
+          <div class="m-t-25">
+            <input class="input100" value="to Shirdi" readonly>
+          </div>
+
+          <div class="m-t-25">
+            <!-- <label class="control-label m-t-10" for="States">States:</label> -->
+            <select formControlName="vehicle" ng-keydown="option" [(ngModel)]="selectedVehicle" class="form-control input100" id="vehicle">
+              <option value="0">Vehicle Type</option>
+              <option *ngFor="let vehicle of listVehicle" value= {{vehicle.name}}>{{vehicle.name}}</option>
+            </select>
+          </div>
+
+          <div class="m-t-25 m-b-30">
+            <button class="btn btn1 btn-grad" 
+            data-toggle="modal" data-target="#myModal" 
+            (click)="fun()" style="width: 100%;">
+              Search
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <!-- The Modal -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title title">Find cab here</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div class="selectedInfo row">
+            <div>
+              <h6>From: </h6>
+              <label>{{selectedCountry}}</label>
+            </div>
+            <div>
+              <h6>to: </h6>
+              <label>shirdi</label>
+            </div>
+            <div>
+              <h6>Vehicle:</h6>
+              <label>{{selectedVehicle}}</label>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="p-l-15 title">Available Drivers</h4>
+
+          <table class="table table-borderless">
+              <thead>
+                <tr>
+                  <th>Driver Name</th>
+                  <th>Contact Number</th>
+                  <th>Fare</th>
+                  <th>Vehicle</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let driver of listDriver">
+                  <td>{{driver.name}}</td>
+                  <td>{{driver.contact}}</td>
+                  <td>{{driver.fare}}</td>
+                  <td>{{driver.vtype}}</td>
+                </tr>
+               
+              </tbody>
+            </table>
+            <div *ngIf="listDriver.length == 0">
+                <h6 class="fs-15 p-l-15">No Drivers Available</h6>
+            </div>
+
+        </div>
+       
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

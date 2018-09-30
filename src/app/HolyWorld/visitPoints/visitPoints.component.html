@@ -1,0 +1,132 @@
+
+<div class="back">
+    <div class="hero-image">
+        <div class="hero-text">
+            <h1 style="font-size:50px">Wherever you go it’ll inside the World </h1>
+            <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+    </div>
+
+
+    <div class="matTab1 container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-12">
+                <nav>
+                    <div class="nav nav-tabs nav-justified" id="nav-tab" role="tablist">
+                        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home"
+                            aria-selected="true">In Shirdi</a>
+                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile"
+                            aria-selected="false">Near Shirdi</a>
+                            <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }"></ngx-loading>
+                    </div>
+                </nav>
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <div class="container-fluid">
+                            <ngx-slick class="for1" #slickModal="slick-modal" [config]="slideConfig1">
+                                <div ngxSlickItem *ngFor="let slide of listIn">
+                                    <div class="row">
+                                        <div class="column">
+                                            <img class="visit_image img-responsive" src="{{ slide.img }}" alt="">
+
+                                        </div>
+                                        <div class="column">
+                                            <div class="title">
+                                                <h6 class="fs-35">{{slide.title}}</h6>
+                                            </div>
+                                            <div class="row detail">
+                                                <div class="column">
+                                                    <h5>Details About Visit Point</h5>
+                                                    <label class="m-l-10">{{slide.address}}</label>
+
+                                                </div>
+                                                <div class="column">
+
+                                                    <div>
+                                                        <h5>Location: </h5>
+                                                        <label class="m-l-10">{{slide.location}}</label>
+                                                    </div>
+
+                                                    <h5 class="m-t-10">Way To Reach: </h5>
+                                                    <label class="m-l-10">{{slide.reach}}</label>
+
+                                                    <div class="m-t-10">
+                                                        <h5>Distance: </h5>
+                                                        <label class="m-l-10">{{slide.distance}}</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </ngx-slick>
+
+                            <ngx-slick responsive="breakpoints" class="nav1" #slickModal="slick-modal" [config]="slideConfig">
+                                <div ngxSlickItem *ngFor="let slide of listIn" class="slide">
+                                    <img class="img_thumbnails" src="{{ slide.img }}" alt="" width="100%">
+                                    <div class="container">
+                                        <label>{{slide.title}}</label>
+                                    </div>
+                                </div>
+                            </ngx-slick>
+                        </div>
+                    </div>
+
+                    <!-- ---------------------Near Shirdi---------------------- -->
+
+                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                        <div class="container-fluid">
+                            <ngx-slick class="for2" #slickModal="slick-modal" [config]="nearConfig1">
+                                <div ngxSlickItem *ngFor="let slide of listNear">
+                                    <div class="row">
+                                        <div class="column">
+                                            <img class="visit_image img-responsive" src="{{ slide.img }}" alt="">
+
+                                        </div>
+                                        <div class="column">
+                                            <div class="title">
+                                                <h6 class="fs-35">{{slide.title}}</h6>
+                                            </div>
+                                            <div class="row detail">
+                                                <div class="column">
+                                                    <h5>Details About Visit Point</h5>
+                                                    <label class="m-l-10">{{slide.address}}</label>
+
+                                                </div>
+                                                <div class="column">
+
+                                                    <div>
+                                                        <h5>Location: </h5>
+                                                        <label class="m-l-10">{{slide.location}}</label>
+                                                    </div>
+
+                                                    <h5 class="m-t-10">Way To Reach: </h5>
+                                                    <label class="m-l-10">{{slide.reach}}</label>
+
+                                                    <div class="m-t-10">
+                                                        <h5>Distance: </h5>
+                                                        <label class="m-l-10">{{slide.distance}}</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ngx-slick>
+
+                            <ngx-slick responsive="breakpoints" class="nav2" #slickModal="slick-modal" [config]="nearConfig">
+                                <div ngxSlickItem *ngFor="let slide of listNear" class="slide">
+                                    <img src="{{ slide.img }}" alt="" width="100%">
+                                    <div class="container">
+                                        <label>{{slide.title}}</label>
+                                    </div>
+                                </div>
+                            </ngx-slick>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,137 @@
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '100px' }"></ngx-loading>
+
+<div class="hero-image">
+    <div class="hero-text">
+        <div class="w3-container w3-center w3-animate-top">
+
+            <h1 style="font-size:50px">About Us</h1>
+            <!-- <p>Trust in the Guru fully. that is the only 'Sadhana'.</p> -->
+        </div>
+    </div>
+</div>
+
+<div class="intro" style=" background: #f6f9fb;">
+    <div class="container">
+        <div class="row justify-content-around">
+            <div class="col-sm-6 d-flex justify-content-center">
+                <div class="intro_image">
+                    <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig">
+                        <div ngxSlickItem *ngFor="let dd of d" class="slide">
+                            <img src="{{ dd.img }}" alt="" height="500px" width="100%">
+                        </div>
+                    </ngx-slick>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="intro_content">
+                    <div class="intro_title">we have the best tours</div>
+                    <p class="intro_text" *ngFor="let ff of f">{{ff.aboutus}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="intro">
+    <div class="container">
+        <div class="row justify-content-around">
+            <div class="col-sm-6 d-flex justify-content-center">
+                <div class="intro_content">
+                    <div class="intro_title" style="text-align: center;">Our Aim</div>
+                    <p class="intro_text" *ngFor="let ff of f">{{ff.ouraim}}</p>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="intro_content">
+                    <div class="intro_title" style="text-align: center;">Why Us</div>
+                    <p class="intro_text" *ngFor="let ff of f">{{ff.whyus}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section sm-padding">
+    <div class="bg-img">
+        <div class="overlay1">
+            <div class="main_title">
+                <h1><b>Features</b></h1>
+            </div>
+            <div class="container">
+                <div class="features">
+                    <div *ngFor="let ff of features">
+                        <div class="feature">
+                            <label>{{ff.feature}}</label>
+                        </div>
+                        <div class="feature-text">
+                            <label>{{ff.description}}</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="section-header">Contact Us</div>
+    <div class="row">
+        <div class="col-lg-6">
+            <h6>If you want to pay us by cash deposit or online transfer, please proceed with following bank details :
+            </h6>
+            <!-- <div class="ShadowBox"> -->
+            <div class="detail" *ngFor="let b of bank">
+                <div class="bankRecord">
+                    <h4>Bank: </h4>
+                    <label class="p-l-20">{{b.bank}}</label>
+                </div>
+                <div class="bankRecord">
+                    <h4>Account Name: </h4>
+                    <label class="p-l-20">{{b.accName}}</label>
+                </div>
+                <div class="bankRecord">
+                    <h4>Account Number: </h4>
+                    <label class="p-l-20">{{b.accNo}}</label>
+                </div>
+                <div class="bankRecord">
+                    <h4>Branch: </h4>
+                    <label class="p-l-20">{{b.branch}}</label>
+                </div>
+                <div class="bankRecord">
+                    <h4>IFS Code: </h4>
+                    <label class="p-l-20">{{b.ifs}}</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <!-- <div class="ShadowBox"> -->
+            <form class="contact_form" [formGroup]="fGroup" (ngSubmit)="onSubmit(f.value)" validate>
+                <div class="form-group">
+                    <input type="text" class="form-control" formControlName="name" id="name" name="name" required="required" placeholder="Enter your name">
+                </div>
+
+                <div class="form-group">
+                    <input type="email" class="form-control" formControlName="email" id="email" name="email" placeholder="Enter email address"
+                        required="required">
+                </div>
+                <span *ngIf="fGroup.hasError('email', 'email')" style="color:red;">
+                    Please enter the correct email or valid email.
+                </span>
+                <div>
+                    <div class="form-group">
+                        <textarea class="form-control" name="message" id="message" formControlName="message" rows="1" placeholder="Enter Message"></textarea>
+                    </div>
+                </div>
+                <div class="col-md-12 text-right">
+                    <button type="submit" class="btn btn1 btn-grad" (click)="add(fGroup.value)" style="width: 100%;">
+                        Send Message
+                    </button>
+                </div>
+            </form>
+            <!-- </div> -->
+        </div>
+    </div>
+</div>

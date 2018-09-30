@@ -1,0 +1,32 @@
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '100px' }"></ngx-loading>
+
+<div class="form_container">
+  <div class="box">
+    <form [formGroup]="feedbackForm">
+      <input type="hidden" name="$key">
+      <div class="header-text">
+        Feedback
+      </div> 
+      <hr>
+
+    <div class="container"> 
+          
+      <div class="form-group">
+        <label class="body-text">Enter Comments Here...</label>
+        <textarea type="text" formControlName="comment" class="form-control"></textarea>
+      </div>
+      
+      <div class="form-group">
+        <label class="body-text">Service Ratings</label>
+        <!-- <br><a *ngFor="let item of starList; let i=index " (click)="setStar(i)">  
+          <i class="far fa-star" [ngClass]="{'fa-star':item,'fa-star':!item}"></i>   
+            </a>   -->
+            <bar-rating [rate]="faoRate" (rateChange)="onFaoRate($event)" [max]="5"></bar-rating>  
+      </div> 
+    </div>
+
+      <button type="button" class="btn_center btn_form" (click)="onSubmit(feedbackForm)">Submit</button>  
+                 
+    </form> 
+  </div>
+</div>

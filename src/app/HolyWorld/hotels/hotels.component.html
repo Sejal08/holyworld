@@ -1,0 +1,80 @@
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '100px' }"></ngx-loading>
+
+<div class="image wow fadeInDown" data-wow-duration="2s">
+    <div class="image_text wow zoomIn" data-wow-delay="2s" data-wow-duration="2s">
+        Welcome To Luxurious World
+    </div>
+</div>
+
+<div class="hotel_container shadow-lg m-t-30" style="background-image: url(../../assets/images/lightgrey.jpg)">    
+    <ngx-slick responsive="breakpoints" class="carousel slider-nav" #slickModal="slick-modal" [config]="slideConfig">
+        <div ngxSlickItem *ngFor="let slide of info">    
+            <div class="row">
+                <div class="col-md-6 m-l-20" id="slider" >
+                    <div class="shadow-lg">
+                        <img class="hotel_image img_responsive" src="{{ slide.img }}" alt="">
+                    </div>
+                </div>
+                <div class="m-l-50 col-md-5">
+                    <h6 class="title fs-35">{{slide.title}}</h6>
+                        <div class="row">
+                            <div class="col-md-6 p-t-20">
+                                <h4>Features:</h4>
+                              <ul class="p-l-50" style="font-size: 20px">  
+                                <li>{{slide.features}}</li>
+                              </ul>
+                            </div>
+                            <div class="col-md-6 p-t-20 ">
+                                <h4>Address: &nbsp;</h4>
+                                    <div class="p-l-30" style="font-size: 20px">{{slide.address}}</div>
+                                <h4 class="p-t-10">Rate: &nbsp;</h4>
+                                    <div class="p-l-30" style="font-size: 20px">{{slide.rate}}</div>
+                                <h4 class="p-t-10">Service Ratings: &nbsp;</h4>
+                                <rating [(ngModel)]="slide.service_rating" [readonly]="true" [float]="true"></rating>
+                            </div>    
+                        </div>
+                    <hr>    
+                    <div class="btn_center m-t-10 m-b-10">
+                        <button class="button" data-toggle="modal" data-target="#modal1" (click)="add(slide)">
+                            Give FeedBack
+                        </button>
+                    </div>    
+                </div>
+            </div>
+        </div>        
+    </ngx-slick>   
+</div>
+
+    <div class="thumbnails">
+        <ngx-slick responsive="breakpoint" class="slider-for" #slickModal="slick-modal" [config]="slideConfig1">
+                <div ngxSlickItem *ngFor="let slide of info" class="slide" (click)="off()">
+                    <img class="img_thumbnails" src="{{ slide.img }}" alt="" width="100%">
+                        <div class="container">
+                            <label>{{slide.title}}</label>
+                        </div>
+                </div> 
+        </ngx-slick>
+    </div>  
+
+    <div class="container">
+        <div class="modal" id="modal1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title">
+                        Give Your Feedback Here...
+                    </div>
+                </div>
+                <div class="btn_center modal-body">
+                    <button (click)="tryGoogleLogin()" href="#" class="google btn" data-dismiss="modal">
+                        <i class="fab fa-google"></i> Login with Google
+                    </button>
+                </div>
+                <div class="login_text">You must login with google account</div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>

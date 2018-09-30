@@ -1,0 +1,97 @@
+.form_container{
+  width: auto;
+  background-image: linear-gradient(to right,#8d4fff93,  #fa9d1b94), url(../../../../assets/images/form.jpg);
+  height: 650px;
+}
+
+.box{
+  background-color: #f7f7f7;
+  width: 40%;
+  border-radius: 15px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow:hidden;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-text{
+  font-family: 'Philosopher', sans-serif;
+  font-size: 40px;
+  text-align: center;
+}
+
+.body-text{
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px; 
+}
+
+.btn_form{
+  border-radius: 100px;
+  width: 50%;
+  padding: 10px;
+  color: #FFFFFF;
+  margin: 5% auto 5% auto;
+  background-size: 200% auto;
+  background-image: linear-gradient(to right, #fa9e1b, #8d4fff,  #fa9e1b);
+}
+
+.btn_form:hover{
+  background-position: right center;
+}
+
+.btn_center{
+  display: flex;
+  justify-content: center;
+}
+
+/* ratings */
+.txt-center {
+  text-align: center;
+}
+.hide {
+  display: none;
+}
+
+.clear {
+  float: none;
+  clear: both;
+}
+
+.rating {
+    width: 90px;
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    text-align: center;
+    position: relative;
+}
+
+.rating > label {
+    /* float: right; */
+    display: inline;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    /* width: 1.1em; */
+    cursor: pointer;
+    color: #000;
+}
+
+.rating > label:hover,
+.rating > label:hover ~ label,
+.rating > input.radio-btn:checked ~ label {
+    color: transparent;
+}
+
+.rating > label:hover:before,
+.rating > label:hover ~ label:before,
+.rating > input.radio-btn:checked ~ label:before,
+.rating > input.radio-btn:checked ~ label:before {
+    content: "\2605";
+    position: absolute;
+    left: 0;
+    color: #FFD700;
+}
+/*------- */

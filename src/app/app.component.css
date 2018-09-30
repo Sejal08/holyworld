@@ -1,0 +1,21 @@
+body{background-color: #222;;}
+
+.navbar{
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left :0;
+  padding: 2rem;
+  text-align: center;
+  color: black;
+  font-family: sans-serif;
+  background-color: grey;
+  transition: 0.3s;
+}
+
+.scrolled{
+  background-color: dodgerblue;
+  transition: 0.3s;
+}
+
+footer{height: 200vh; width: 100%;}

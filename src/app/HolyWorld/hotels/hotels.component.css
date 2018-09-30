@@ -1,0 +1,218 @@
+  .image{
+    width: 100%;
+    height: 500px; 
+    padding-top: 5%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../../../assets/images/hotel.jpg);
+    background-size: cover ;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+  
+  .image_text {
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white; 
+    font-size: 50px;
+    overflow:hidden;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+}
+
+.hotel_container{
+    width: 86%;
+    height: auto;
+    margin-left: 7%;
+    margin-right: 7%;
+    padding-bottom: 2%;
+    padding-top: 2%;
+}
+
+.hotel_image{
+    width: 100%;
+    height: 400px;
+}
+
+.thumbnails{
+    width: 90%;
+    height: auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 5%;
+    margin-right: 5%''
+}
+
+.img_thumbnails{
+    width: 100%;
+    height: 200px;
+}
+
+.slide {
+	margin:8px;
+	margin-bottom: 20px;
+	width: 80%;
+  background-color: #f6f9fb;
+  margin-bottom: 25px;
+  border-radius: 5px;
+}
+
+.slide img{
+	border-radius: 5px;
+}
+.slide .container{
+	text-align: center;
+  padding: 10px 20px;
+}
+
+.slide:hover
+ {
+  animation: pulse 1s;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background: #fff;
+  cursor: pointer;
+  transform: scale(1.05)
+
+}
+
+.title{
+	display: flex;
+	justify-content: center;
+	-webkit-appearance: searchfield;
+	color: cornsilk;
+	 background: -webkit-linear-gradient(#fa9e1b, #8d4fff);
+	 background-clip: text;
+ 	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+ }
+
+.checked {
+    color: orangered;
+}
+
+hr{
+    display: block;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 3px;
+}
+
+.btn_center{
+    display: flex;
+    justify-content: center;
+}
+
+.button{
+    transition: 0.5s;
+    width: 50%;
+    text-align: center;
+    color: white;
+    padding: 10px;
+    box-shadow: 5px 5px 5px gray;
+    background-size: 200% auto;
+    border-radius: 50px;
+    background-image: linear-gradient(to right, #fa9e1b, #8d4fff,  #fa9e1b);
+}
+
+.button:hover{
+    background-position: right center;
+}
+
+.form_container{
+    margin-left: 30%;
+    margin-right: 30%;
+    width: 40%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    background-image: linear-gradient(to right,#8d4fff93,  #fa9d1b94);
+}
+
+.data_container{
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 5%;
+    width: 60%;
+}
+
+.login_text{
+    font-family: 'Philosopher', sans-serif;
+    font-size: 15px;
+    color: grey;
+    text-align: center; 
+}
+
+.btn_form{
+    border-radius: 100px;
+    width: 50%;
+    padding: 10px;
+    color: #FFFFFF;
+    margin: 5% auto 5% auto;
+    background-size: 200% auto;
+    background-image: linear-gradient(to right, #fa9e1b, #8d4fff,  #fa9e1b);
+}
+
+.btn_form:hover{
+    background-position: right center;
+}
+
+.text_container{
+    height: 100%;
+    width: 95%;
+    background-color: aquamarine; 
+}
+
+/* ratings */
+.txt-center {
+    text-align: center;
+  }
+  .hide {
+    display: none;
+  }
+  
+  .clear {
+    float: none;
+    clear: both;
+  }
+  
+  .rating {
+      width: 90px;
+      unicode-bidi: bidi-override;
+      direction: rtl;
+      text-align: center;
+      position: relative;
+  }
+  
+  .rating > label {
+      /* float: right; */
+      display: inline;
+      padding: 0;
+      margin: 0;
+      position: relative;
+      /* width: 1.1em; */
+      cursor: pointer;
+      color: #000;
+  }
+  
+  .rating > label:hover,
+  .rating > label:hover ~ label,
+  .rating > input.radio-btn:checked ~ label {
+      color: transparent;
+  }
+  
+  .rating > label:hover:before,
+  .rating > label:hover ~ label:before,
+  .rating > input.radio-btn:checked ~ label:before,
+  .rating > input.radio-btn:checked ~ label:before {
+      content: "\2605";
+      position: absolute;
+      left: 0;
+      color: #FFD700;
+  }
+  /*------- */
